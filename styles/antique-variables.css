@@ -1,0 +1,49 @@
+/* ============================================
+   ШРИФТЫ — подключение
+   ============================================ */
+
+/* Основной шрифт текста */
+@font-face {
+  font-family: 'AntiqueBody';
+  src: url('../fonts/Cornerita_Regular.ttf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Шрифт всех заголовков */
+@font-face {
+  font-family: 'AntiqueHeader';
+  src: url('../fonts/Norse-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* === ШРИФТЫ === */
+  --antique-font-body: 'AntiqueBody', serif;
+  --antique-font-header: 'AntiqueHeader', serif;
+
+  /* === ЦВЕТА === */
+  --antique-primary: #008080;
+  --antique-accent: #20B2AA;
+  --antique-border: #00CED1;
+  --antique-text: #111212;
+  --antique-bg: #f5f0e8;
+
+  /* === ПУТИ К КАРТИНКАМ === */
+  --antique-paper-texture: url(../assets/ui/paper-texture.webp);
+  --antique-scroll-image: url(../assets/ui/scroll-vertical.webp);
+  --antique-greek-pattern: url(../assets/ui/greek-pattern.png);
+  --antique-noise-texture: url(../assets/ui/noise-texture.png);
+
+  /* === НАСТРОЙКИ СВИТКА === */
+  --antique-scroll-slice: 50 20 50 20;
+  --antique-scroll-border-width: 50px 20px;
+
+  /* === ТЕНИ === */
+  --antique-shadow: 0 0 15px rgba(18, 46, 49, 0.45);
+  --antique-title-shadow: 0 8px 30px rgba(18, 46, 49, 0.95);
+  --antique-block-shadow: 0 6px 16px rgba(18, 46, 49, 0.4);
+}

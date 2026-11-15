@@ -1,0 +1,884 @@
+/* ============================================
+   antique-journal.css — каркас античного журнала
+   ============================================ */
+/* ============================================
+   ★ ФИКС: текст больше не обрезается слева
+   У Cornerita (и у синтетического bold поверх неё)
+   глифы на 1–2 px выходят за advance-width. Область
+   содержимого это срезала. Даём контенту небольшой
+   боковой padding, чтобы глифы гарантированно
+   оставались внутри.
+   ============================================ */
+.antiquejournal .journal-page-content,
+.antiquejournal .journal-entry-page {
+  padding-left: 1px !important;
+  padding-right: 1px !important;
+  box-sizing: border-box;
+  overflow: visible;
+}
+/* ---------- ФОН ВСЕЙ СТРАНИЦЫ ЖУРНАЛА ---------- */
+.sheet.journal-entry.antiquejournal .journal-entry-content,
+.antiquejournal .journal-entry-content {
+  background-image: var(--antique-paper-texture);
+  background-size: cover;
+  background-color: var(--antique-bg);
+  color: var(--antique-text);
+  font-family: var(--antique-font-body);
+}
+
+/* ============================================
+   ШАПКА ОКНА ЖУРНАЛА
+   ============================================ */
+.antiquejournal .window-header,
+.antiquejournal.window-app .window-header {
+  background: #2d3939 !important;
+  background-image: none !important;
+  color: #ffffff !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
+.antiquejournal .window-header .window-title,
+.antiquejournal.window-app .window-header .window-title {
+  color: #ffffff !important;
+  font-family: var(--antique-font-header);
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  text-shadow:
+    0 0 3px #000,
+    0 0 6px #000,
+    2px  2px 0 #000,
+   -2px -2px 0 #000,
+    2px -2px 0 #000,
+   -2px  2px 0 #000 !important;
+}
+
+/* ============================================
+   БОКОВАЯ ПАНЕЛЬ — фон списка страниц
+   ============================================ */
+.antiquejournal .sidebar,
+.antiquejournal .pages-list,
+.antiquejournal .journal-sidebar,
+.antiquejournal .journal-sidebar .directory,
+.antiquejournal .sidebar .directory {
+  background-color: rgba(45, 57, 57, 0.8) !important;
+  color: var(--antique-text);
+}
+
+/* ============================================================
+   КНОПКИ В ШАПКЕ
+   ============================================================ */
+body.vtt .antiquejournal .window-header .header-control {
+  color: #dceae6 !important;
+  background: transparent !important;
+  background-image: none !important;
+  border: 1px solid transparent !important;
+  border-radius: 4px !important;
+  transition: all 0.2s ease !important;
+  box-shadow: none !important;
+}
+
+body.vtt .antiquejournal .window-header .header-control::before,
+body.vtt .antiquejournal .window-header .header-control i,
+body.vtt .antiquejournal .window-header .header-control i::before {
+  color: inherit !important;
+  opacity: 1 !important;
+}
+
+body.vtt .antiquejournal .window-header .header-control:hover {
+  color: #ffffff !important;
+  background-color: var(--antique-primary) !important;
+  background-image: none !important;
+  border-color: var(--antique-primary) !important;
+  outline: none !important;
+  box-shadow:
+    inset 0 0 12px var(--antique-accent),
+    inset 0 0 4px var(--antique-accent),
+    0 0 10px var(--antique-accent) !important;
+}
+
+body.vtt .antiquejournal .window-header .header-control:hover::before {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+body.vtt .antiquejournal .window-header .header-control.active {
+  color: var(--antique-accent) !important;
+  background-color: rgba(0, 128, 128, 0.25) !important;
+  border-color: var(--antique-accent) !important;
+}
+
+body.vtt .antiquejournal .window-header .header-control.active::before {
+  color: var(--antique-accent) !important;
+}
+
+body.vtt .antiquejournal button[data-action="toggleLock"],
+body.vtt .antiquejournal button[data-action="toggleSearch"],
+body.vtt .antiquejournal button[data-action="toggleSidebar"],
+body.vtt .antiquejournal button[data-action="toggleControls"],
+body.vtt .antiquejournal button[data-action="togglePageMode"],
+body.vtt .antiquejournal button[data-action="toggleSinglePageMode"],
+body.vtt .antiquejournal button[data-action="scrollThroughPages"],
+body.vtt .antiquejournal button[data-action="previousPage"],
+body.vtt .antiquejournal button[data-action="nextPage"],
+body.vtt .antiquejournal button[data-action="copyUuid"],
+body.vtt .antiquejournal button[data-action="copyUUID"],
+body.vtt .antiquejournal button[data-action="goToHomePage"],
+body.vtt .antiquejournal button[data-action="close"] {
+  color: #dceae6 !important;
+}
+
+body.vtt .antiquejournal button[data-action="toggleLock"]::before,
+body.vtt .antiquejournal button[data-action="toggleSearch"]::before,
+body.vtt .antiquejournal button[data-action="toggleSidebar"]::before,
+body.vtt .antiquejournal button[data-action="toggleControls"]::before,
+body.vtt .antiquejournal button[data-action="togglePageMode"]::before,
+body.vtt .antiquejournal button[data-action="toggleSinglePageMode"]::before,
+body.vtt .antiquejournal button[data-action="scrollThroughPages"]::before,
+body.vtt .antiquejournal button[data-action="previousPage"]::before,
+body.vtt .antiquejournal button[data-action="nextPage"]::before,
+body.vtt .antiquejournal button[data-action="copyUuid"]::before,
+body.vtt .antiquejournal button[data-action="copyUUID"]::before,
+body.vtt .antiquejournal button[data-action="goToHomePage"]::before,
+body.vtt .antiquejournal button[data-action="close"]::before {
+  color: #dceae6 !important;
+  opacity: 1 !important;
+}
+
+body.vtt .antiquejournal button[data-action="createPage"],
+body.vtt .antiquejournal button[data-action="createDocument"] {
+  color: #ffffff !important;
+}
+
+body.vtt .antiquejournal button[data-action="createPage"]::before,
+body.vtt .antiquejournal button[data-action="createDocument"]::before {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+body.vtt .antiquejournal button[data-action]:hover,
+body.vtt .antiquejournal .window-header .header-control:hover {
+  color: #ffffff !important;
+  background-color: var(--antique-primary) !important;
+  border-color: var(--antique-primary) !important;
+  box-shadow:
+    inset 0 0 12px var(--antique-accent),
+    inset 0 0 4px var(--antique-accent),
+    0 0 10px var(--antique-accent) !important;
+  outline: none !important;
+}
+
+body.vtt .antiquejournal button[data-action]:hover::before,
+body.vtt .antiquejournal .window-header .header-control:hover::before {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+/* ============================================================
+   ЖЁЛТАЯ РАМКА ФОКУСА — убираем, заменяем бирюзовой
+   ============================================================ */
+body.vtt .antiquejournal button:focus,
+body.vtt .antiquejournal button:focus-visible,
+body.vtt .antiquejournal .window-header .header-control:focus,
+body.vtt .antiquejournal .window-header .header-control:focus-visible,
+body.vtt .antiquejournal .book-navigation a:focus,
+body.vtt .antiquejournal .book-navigation a:focus-visible {
+  outline: none !important;
+  outline-offset: 0 !important;
+  border-color: var(--antique-accent) !important;
+  box-shadow: 0 0 0 2px var(--antique-accent) !important;
+}
+
+/* ============================================
+   НАВИГАЦИЯ: СТРЕЛКИ ← → и «Домашняя страница»
+   ============================================ */
+body.vtt .antiquejournal .book-navigation a,
+body.vtt .antiquejournal .book-navigation button,
+body.vtt .antiquejournal button[data-action="goToHomePage"] {
+  display: inline-block;
+  color: #dceae6 !important;
+  border: 1px solid var(--antique-accent) !important;
+  border-radius: 4px !important;
+  padding: 4px 8px !important;
+  transition: all 0.2s ease;
+  background: transparent !important;
+  background-image: none !important;
+  text-decoration: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+body.vtt .antiquejournal .book-navigation a::before,
+body.vtt .antiquejournal .book-navigation button::before,
+body.vtt .antiquejournal button[data-action="goToHomePage"]::before {
+  color: inherit !important;
+  opacity: 1 !important;
+}
+
+body.vtt .antiquejournal .book-navigation a:hover,
+body.vtt .antiquejournal .book-navigation button:hover,
+body.vtt .antiquejournal button[data-action="goToHomePage"]:hover {
+  color: #ffffff !important;
+  background-color: var(--antique-primary) !important;
+  border-color: var(--antique-primary) !important;
+  box-shadow:
+    inset 0 0 12px var(--antique-accent),
+    inset 0 0 4px var(--antique-accent),
+    0 0 10px var(--antique-accent) !important;
+  outline: none !important;
+}
+
+body.vtt .antiquejournal .book-navigation a:hover::before,
+body.vtt .antiquejournal .book-navigation button:hover::before,
+body.vtt .antiquejournal button[data-action="goToHomePage"]:hover::before {
+  color: #ffffff !important;
+}
+
+/* ============================================
+   СПИСОК СТРАНИЦ В БОКОВОЙ ПАНЕЛИ
+   ============================================ */
+.antiquejournal .sidebar,
+.antiquejournal .sidebar .directory-item,
+.antiquejournal .sidebar .directory-item .page-title,
+.antiquejournal .sidebar .directory-item .page-heading,
+.antiquejournal .sidebar .page-title,
+.antiquejournal .pages-list,
+.antiquejournal .pages-list .directory-item,
+.antiquejournal .pages-list .page-title,
+.antiquejournal .pages-list a,
+.antiquejournal .journal-sidebar,
+.antiquejournal .journal-sidebar .directory-item,
+.antiquejournal .journal-sidebar .page-title {
+  font-family: var(--antique-font-body) !important;
+  letter-spacing: normal;
+}
+
+/* ============================================
+   ★ ЦВЕТА В ОГЛАВЛЕНИИ СЛЕВА
+   НОМЕР СТРАНИЦЫ (.page-number, .page-index) НЕ ТРОГАЕМ —
+   ни цвет, ни шрифт, ни что-либо ещё. Полностью отпущен.
+   ============================================ */
+.antiquejournal .sidebar .directory-item,
+.antiquejournal .sidebar .directory-item *:not(.page-number):not(.page-index),
+.antiquejournal .pages-list .directory-item,
+.antiquejournal .pages-list .directory-item *:not(.page-number):not(.page-index),
+.antiquejournal .journal-sidebar .directory-item,
+.antiquejournal .journal-sidebar .directory-item *:not(.page-number):not(.page-index),
+.antiquejournal .directory .directory-item,
+.antiquejournal .directory .directory-item *:not(.page-number):not(.page-index),
+.antiquejournal .sidebar nav,
+.antiquejournal .sidebar nav *:not(.page-number):not(.page-index),
+.antiquejournal .journal-sidebar nav,
+.antiquejournal .journal-sidebar nav *:not(.page-number):not(.page-index),
+.antiquejournal .sidebar .page-title,
+.antiquejournal .sidebar .page-heading,
+.antiquejournal .sidebar .name,
+.antiquejournal .pages-list .page-title,
+.antiquejournal .pages-list .page-heading,
+.antiquejournal .pages-list .name,
+.antiquejournal .journal-sidebar .page-title,
+.antiquejournal .journal-sidebar .page-heading,
+.antiquejournal .journal-sidebar .name {
+  color: #dceae6 !important;
+  font-family: var(--antique-font-body) !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+}
+
+/* ============================================================
+   ★ ХОВЕР и ВЫДЕЛЕНИЕ АКТИВНОЙ СТРАНИЦЫ
+   ============================================================ */
+
+.antiquejournal .sidebar .directory-item:hover,
+.antiquejournal .sidebar .directory-item:hover *,
+.antiquejournal .pages-list .directory-item:hover,
+.antiquejournal .pages-list .directory-item:hover *,
+.antiquejournal .journal-sidebar .directory-item:hover,
+.antiquejournal .journal-sidebar .directory-item:hover * {
+  color: var(--antique-accent) !important;
+  text-shadow: 0 0 8px var(--antique-accent);
+}
+
+.antiquejournal .sidebar .directory-item.active,
+.antiquejournal .sidebar .directory-item.context,
+.antiquejournal .pages-list .directory-item.active,
+.antiquejournal .pages-list .directory-item.context,
+.antiquejournal .journal-sidebar .directory-item.active,
+.antiquejournal .journal-sidebar .directory-item.context,
+.antiquejournal .directory .directory-item.active,
+.antiquejournal .directory .directory-item.context {
+  border-top: 1px solid var(--antique-accent) !important;
+  border-bottom: 1px solid var(--antique-accent) !important;
+  color: var(--antique-accent) !important;
+  background-color: rgba(32, 178, 170, 0.08) !important;
+}
+
+.antiquejournal .sidebar .directory-item.active *,
+.antiquejournal .sidebar .directory-item.context *,
+.antiquejournal .pages-list .directory-item.active *,
+.antiquejournal .pages-list .directory-item.context *,
+.antiquejournal .journal-sidebar .directory-item.active *,
+.antiquejournal .journal-sidebar .directory-item.context *,
+.antiquejournal .directory .directory-item.active *,
+.antiquejournal .directory .directory-item.context * {
+  color: var(--antique-accent) !important;
+}
+
+.antiquejournal .sidebar .directory-item.active:first-of-type,
+.antiquejournal .pages-list .directory-item.active:first-of-type,
+.antiquejournal .journal-sidebar .directory-item.active:first-of-type {
+  border-top-color: var(--antique-accent) !important;
+}
+
+.antiquejournal .sidebar .directory-item.active:last-of-type,
+.antiquejournal .pages-list .directory-item.active:last-of-type,
+.antiquejournal .journal-sidebar .directory-item.active:last-of-type {
+  border-bottom-color: var(--antique-accent) !important;
+}
+
+/* ============================================
+   МЕТКИ (PIN)
+   ============================================ */
+.antiquejournal .sidebar .page-pin,
+.antiquejournal .sidebar .pin-icon,
+.antiquejournal .sidebar .directory-item i.fa-thumbtack,
+.antiquejournal .sidebar .directory-item i.fa-map-pin,
+.antiquejournal .sidebar .directory-item i.fa-map-marker-alt,
+.antiquejournal .sidebar .directory-item i.fas.fa-location-dot,
+.antiquejournal .pages-list .page-pin,
+.antiquejournal .pages-list .pin-icon,
+.antiquejournal .pages-list .directory-item i.fa-thumbtack,
+.antiquejournal .pages-list .directory-item i.fa-map-pin,
+.antiquejournal .journal-sidebar .page-pin,
+.antiquejournal .journal-sidebar .pin-icon {
+  color: #dceae6 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.antiquejournal .sidebar .page-pin:hover,
+.antiquejournal .sidebar .pin-icon:hover,
+.antiquejournal .pages-list .page-pin:hover,
+.antiquejournal .pages-list .pin-icon:hover {
+  color: var(--antique-accent) !important;
+  text-shadow: 0 0 8px var(--antique-accent);
+}
+
+/* ============================================
+   БАЗОВЫЕ ЦВЕТА И ШРИФТ ДЛЯ КОНТЕНТА
+   ============================================ */
+.antiquejournal .journal-page-content,
+.antiquejournal .journal-page-content p,
+.antiquejournal .journal-page-content li,
+.antiquejournal .journal-page-content span,
+.antiquejournal .journal-page-content div,
+.antiquejournal .journal-page-content td,
+.antiquejournal .journal-page-content th {
+  color: var(--antique-text);
+  font-family: var(--antique-font-body);
+}
+
+/* ============================================
+   ЗАГОЛОВОК H1 (в контенте) — паттерн под ним
+   ============================================ */
+.antiquejournal .journal-page-content h1,
+.antiquejournal .journal-entry-page h1,
+.antiquejournal .journal-page-header h1 {
+  position: relative;
+  color: var(--antique-primary);
+  font-family: var(--antique-font-header);
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 2.2em;
+  padding-bottom: 20px;
+  margin-bottom: 22px;
+}
+
+.antiquejournal .journal-page-content h1::after,
+.antiquejournal .journal-entry-page h1::after,
+.antiquejournal .journal-page-header h1::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background: var(--antique-greek-pattern) repeat-x center;
+  background-size: contain;
+  opacity: 0.9;
+}
+
+/* ============================================
+   ЗАГОЛОВКИ H2, H3 (в контенте)
+   ============================================ */
+.antiquejournal .journal-page-content h2,
+.antiquejournal .journal-page-content h3,
+.antiquejournal .journal-entry-page h2,
+.antiquejournal .journal-entry-page h3 {
+  position: relative;
+  color: var(--antique-primary);
+  font-family: var(--antique-font-header);
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding-bottom: 8px;
+  margin-bottom: 18px;
+}
+
+.antiquejournal .journal-page-content h2 { font-size: 1.8em; }
+.antiquejournal .journal-page-content h3 { font-size: 1.5em; }
+
+.antiquejournal .journal-page-content h2::after,
+.antiquejournal .journal-page-content h3::after,
+.antiquejournal .journal-entry-page h2::after,
+.antiquejournal .journal-entry-page h3::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: var(--antique-greek-pattern) repeat-x center;
+  background-size: contain;
+  opacity: 0.45;
+}
+
+/* ============================================
+   ЗАГОЛОВКИ H4, H5, H6 (в контенте)
+   ============================================ */
+.antiquejournal .journal-page-content h4,
+.antiquejournal .journal-page-content h5,
+.antiquejournal .journal-page-content h6 {
+  color: var(--antique-primary);
+  font-family: var(--antique-font-header);
+  font-weight: 900;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.antiquejournal .journal-page-content h4 { font-size: 1.4em; }
+.antiquejournal .journal-page-content h5 { font-size: 1.25em; }
+.antiquejournal .journal-page-content h6 { font-size: 1.15em; }
+
+/* ============================================
+   ССЫЛКИ В КОНТЕНТЕ
+   ============================================ */
+.antiquejournal .journal-page-content a,
+.antiquejournal .journal-page-content a.content-link,
+.antiquejournal .journal-page-content a.inline-roll,
+.antiquejournal .journal-page-content span.roll-link a {
+  color: var(--antique-primary) !important;
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+  text-decoration: none !important;
+  box-shadow: none !important;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+.antiquejournal .journal-page-content a:hover,
+.antiquejournal .journal-page-content a.content-link:hover,
+.antiquejournal .journal-page-content a.inline-roll:hover {
+  color: var(--antique-accent) !important;
+  text-shadow: 0 0 8px var(--antique-accent);
+}
+
+.antiquejournal .journal-page-content a.content-link i,
+.antiquejournal .journal-page-content a.inline-roll i {
+  color: var(--antique-primary) !important;
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+  margin-right: 3px;
+}
+
+/* ============================================
+   НАЗВАНИЕ ЖУРНАЛА НА БУМАГЕ
+   ============================================ */
+.antiquejournal .journal-header input.title,
+.antiquejournal input.title,
+.antiquejournal .journal-entry-content input.title {
+  color: #e9e9e9 !important;
+  font-family: var(--antique-font-header);
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-align: center;
+  background: none !important;
+  border: none !important;
+  text-shadow:
+    0 0 16px rgba(0, 0, 0, 0.9),
+    0 0 40px rgba(0, 0, 0, 1),
+    0 0 20px rgba(0, 0, 49, 1),
+    0 0 45px rgba(0, 0, 0, 0.85),
+    0 0 150px rgba(0, 0, 0, 0.85);
+}
+
+.antiquejournal .journal-header input.title:focus,
+.antiquejournal input.title:focus {
+  box-shadow: 0 0 8px var(--antique-accent) !important;
+  border-radius: 4px;
+}
+
+/* ============================================================
+   ★ ПОДМЕНЮ «Переключение управления»
+   ============================================================ */
+.antiquejournal menu.controls-dropdown,
+.antiquejournal .controls-dropdown,
+.antiquejournal menu,
+.antiquejournal ul.menu,
+.antiquejournal [role="menu"],
+.antiquejournal .dropdown-menu,
+.antiquejournal .context-menu {
+  background-color: #2d3939 !important;
+  background-image: none !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 6px !important;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5) !important;
+  padding: 6px !important;
+}
+
+.antiquejournal menu button,
+.antiquejournal menu a,
+.antiquejournal menu li,
+.antiquejournal ul.menu button,
+.antiquejournal ul.menu a,
+.antiquejournal ul.menu li,
+.antiquejournal [role="menu"] button,
+.antiquejournal [role="menu"] a,
+.antiquejournal [role="menu"] li,
+.antiquejournal .dropdown-menu button,
+.antiquejournal .dropdown-menu a,
+.antiquejournal .dropdown-menu li,
+.antiquejournal .controls-dropdown button,
+.antiquejournal .controls-dropdown a,
+.antiquejournal .controls-dropdown li,
+.antiquejournal .context-menu button,
+.antiquejournal .context-menu a,
+.antiquejournal .context-menu li,
+.antiquejournal button[data-action="openSheetSettings"],
+.antiquejournal button[data-action="showToPlayers"],
+.antiquejournal button[data-action="configureCategories"] {
+  color: #ffffff !important;
+  background: transparent !important;
+  background-image: none !important;
+  border: none !important;
+  border-radius: 4px !important;
+  box-shadow: none !important;
+  outline: none !important;
+  padding: 8px 12px !important;
+  margin: 0 !important;
+  transition: all 0.15s ease;
+  text-align: left;
+  width: 100%;
+}
+
+.antiquejournal menu button i,
+.antiquejournal menu a i,
+.antiquejournal .controls-dropdown button i,
+.antiquejournal .controls-dropdown a i {
+  color: inherit !important;
+  margin-right: 8px;
+}
+
+.antiquejournal menu button:hover,
+.antiquejournal menu a:hover,
+.antiquejournal menu li:hover,
+.antiquejournal ul.menu button:hover,
+.antiquejournal ul.menu a:hover,
+.antiquejournal ul.menu li:hover,
+.antiquejournal [role="menu"] button:hover,
+.antiquejournal [role="menu"] a:hover,
+.antiquejournal [role="menu"] li:hover,
+.antiquejournal .dropdown-menu button:hover,
+.antiquejournal .dropdown-menu a:hover,
+.antiquejournal .dropdown-menu li:hover,
+.antiquejournal .controls-dropdown button:hover,
+.antiquejournal .controls-dropdown a:hover,
+.antiquejournal .controls-dropdown li:hover,
+.antiquejournal .context-menu button:hover,
+.antiquejournal .context-menu a:hover,
+.antiquejournal .context-menu li:hover,
+.antiquejournal button[data-action="openSheetSettings"]:hover,
+.antiquejournal button[data-action="showToPlayers"]:hover,
+.antiquejournal button[data-action="configureCategories"]:hover {
+  color: #ffffff !important;
+  background-color: var(--antique-primary) !important;
+  box-shadow:
+    inset 0 0 10px var(--antique-accent),
+    0 0 8px var(--antique-accent) !important;
+}
+
+.antiquejournal menu button:hover *,
+.antiquejournal menu a:hover *,
+.antiquejournal menu li:hover *,
+.antiquejournal ul.menu button:hover *,
+.antiquejournal ul.menu a:hover *,
+.antiquejournal ul.menu li:hover *,
+.antiquejournal [role="menu"] button:hover *,
+.antiquejournal [role="menu"] a:hover *,
+.antiquejournal [role="menu"] li:hover *,
+.antiquejournal .dropdown-menu button:hover *,
+.antiquejournal .dropdown-menu a:hover *,
+.antiquejournal .dropdown-menu li:hover *,
+.antiquejournal .controls-dropdown button:hover *,
+.antiquejournal .controls-dropdown a:hover *,
+.antiquejournal .controls-dropdown li:hover *,
+.antiquejournal .context-menu button:hover *,
+.antiquejournal .context-menu a:hover *,
+.antiquejournal .context-menu li:hover * {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+  text-shadow: none !important;
+}
+
+/* ============================================================
+   ★ СКРОЛЛБАРЫ
+   ============================================================ */
+
+.antiquejournal .sidebar,
+.antiquejournal .pages-list,
+.antiquejournal .journal-sidebar,
+.antiquejournal .journal-sidebar .directory,
+.antiquejournal .sidebar .directory,
+.antiquejournal .journal-sidebar nav,
+.antiquejournal .sidebar nav {
+  scrollbar-width: thin;
+  scrollbar-color: #dceae6 rgba(45, 57, 57, 0.6);
+}
+
+.antiquejournal .sidebar::-webkit-scrollbar,
+.antiquejournal .pages-list::-webkit-scrollbar,
+.antiquejournal .journal-sidebar::-webkit-scrollbar,
+.antiquejournal .sidebar .directory::-webkit-scrollbar,
+.antiquejournal .journal-sidebar .directory::-webkit-scrollbar,
+.antiquejournal .sidebar nav::-webkit-scrollbar,
+.antiquejournal .journal-sidebar nav::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.antiquejournal .sidebar::-webkit-scrollbar-track,
+.antiquejournal .pages-list::-webkit-scrollbar-track,
+.antiquejournal .journal-sidebar::-webkit-scrollbar-track,
+.antiquejournal .sidebar .directory::-webkit-scrollbar-track,
+.antiquejournal .journal-sidebar .directory::-webkit-scrollbar-track {
+  background: rgba(45, 57, 57, 0.6);
+  border-radius: 0;
+}
+
+.antiquejournal .sidebar::-webkit-scrollbar-thumb,
+.antiquejournal .pages-list::-webkit-scrollbar-thumb,
+.antiquejournal .journal-sidebar::-webkit-scrollbar-thumb,
+.antiquejournal .sidebar .directory::-webkit-scrollbar-thumb,
+.antiquejournal .journal-sidebar .directory::-webkit-scrollbar-thumb {
+  background: #dceae6;
+  border-radius: 6px;
+  border: 2px solid rgba(45, 57, 57, 0.6);
+}
+
+.antiquejournal .sidebar::-webkit-scrollbar-thumb:hover,
+.antiquejournal .pages-list::-webkit-scrollbar-thumb:hover,
+.antiquejournal .journal-sidebar::-webkit-scrollbar-thumb:hover {
+  background: var(--antique-accent);
+}
+
+.antiquejournal .sidebar::-webkit-scrollbar-button,
+.antiquejournal .pages-list::-webkit-scrollbar-button,
+.antiquejournal .journal-sidebar::-webkit-scrollbar-button,
+.antiquejournal .sidebar .directory::-webkit-scrollbar-button,
+.antiquejournal .journal-sidebar .directory::-webkit-scrollbar-button {
+  display: block;
+  height: 12px;
+  width: 10px;
+  background-color: #dceae6;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 8px 6px;
+}
+
+.antiquejournal .sidebar::-webkit-scrollbar-button:vertical:decrement,
+.antiquejournal .pages-list::-webkit-scrollbar-button:vertical:decrement,
+.antiquejournal .journal-sidebar::-webkit-scrollbar-button:vertical:decrement {
+  background-image: linear-gradient(45deg, transparent 50%, #2d3939 50%),
+                    linear-gradient(135deg, #2d3939 50%, transparent 50%);
+  background-size: 6px 6px, 6px 6px;
+  background-position: 2px 4px, 4px 4px;
+}
+
+.antiquejournal .sidebar::-webkit-scrollbar-button:vertical:increment,
+.antiquejournal .pages-list::-webkit-scrollbar-button:vertical:increment,
+.antiquejournal .journal-sidebar::-webkit-scrollbar-button:vertical:increment {
+  background-image: linear-gradient(45deg, #2d3939 50%, transparent 50%),
+                    linear-gradient(135deg, transparent 50%, #2d3939 50%);
+  background-size: 6px 6px, 6px 6px;
+  background-position: 2px 4px, 4px 4px;
+}
+
+.antiquejournal .journal-entry-content,
+.antiquejournal .journal-page-content,
+.antiquejournal .journal-entry-pages,
+.antiquejournal .scrollable,
+.antiquejournal .window-content {
+  scrollbar-width: thin;
+  scrollbar-color: var(--antique-primary) rgba(244, 236, 224, 0.4);
+}
+
+.antiquejournal .journal-entry-content::-webkit-scrollbar,
+.antiquejournal .journal-page-content::-webkit-scrollbar,
+.antiquejournal .journal-entry-pages::-webkit-scrollbar,
+.antiquejournal .scrollable::-webkit-scrollbar,
+.antiquejournal .window-content::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.antiquejournal .journal-entry-content::-webkit-scrollbar-track,
+.antiquejournal .journal-page-content::-webkit-scrollbar-track,
+.antiquejournal .journal-entry-pages::-webkit-scrollbar-track,
+.antiquejournal .scrollable::-webkit-scrollbar-track,
+.antiquejournal .window-content::-webkit-scrollbar-track {
+  background: rgba(244, 236, 224, 0.4);
+  border-radius: 0;
+}
+
+.antiquejournal .journal-entry-content::-webkit-scrollbar-thumb,
+.antiquejournal .journal-page-content::-webkit-scrollbar-thumb,
+.antiquejournal .journal-entry-pages::-webkit-scrollbar-thumb,
+.antiquejournal .scrollable::-webkit-scrollbar-thumb,
+.antiquejournal .window-content::-webkit-scrollbar-thumb {
+  background: var(--antique-primary);
+  border-radius: 6px;
+  border: 2px solid rgba(244, 236, 224, 0.4);
+}
+
+.antiquejournal .journal-entry-content::-webkit-scrollbar-thumb:hover,
+.antiquejournal .journal-page-content::-webkit-scrollbar-thumb:hover,
+.antiquejournal .journal-entry-pages::-webkit-scrollbar-thumb:hover,
+.antiquejournal .scrollable::-webkit-scrollbar-thumb:hover,
+.antiquejournal .window-content::-webkit-scrollbar-thumb:hover {
+  background: var(--antique-accent);
+}
+
+.antiquejournal .journal-entry-content::-webkit-scrollbar-button,
+.antiquejournal .journal-page-content::-webkit-scrollbar-button,
+.antiquejournal .journal-entry-pages::-webkit-scrollbar-button,
+.antiquejournal .scrollable::-webkit-scrollbar-button,
+.antiquejournal .window-content::-webkit-scrollbar-button {
+  display: block;
+  height: 12px;
+  width: 10px;
+  background-color: var(--antique-primary);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 8px 6px;
+}
+
+.antiquejournal .journal-entry-content::-webkit-scrollbar-button:vertical:decrement,
+.antiquejournal .journal-page-content::-webkit-scrollbar-button:vertical:decrement,
+.antiquejournal .journal-entry-pages::-webkit-scrollbar-button:vertical:decrement,
+.antiquejournal .scrollable::-webkit-scrollbar-button:vertical:decrement,
+.antiquejournal .window-content::-webkit-scrollbar-button:vertical:decrement {
+  background-image: linear-gradient(45deg, transparent 50%, #f4ece0 50%),
+                    linear-gradient(135deg, #f4ece0 50%, transparent 50%);
+  background-size: 6px 6px, 6px 6px;
+  background-position: 2px 4px, 4px 4px;
+}
+
+.antiquejournal .journal-entry-content::-webkit-scrollbar-button:vertical:increment,
+.antiquejournal .journal-page-content::-webkit-scrollbar-button:vertical:increment,
+.antiquejournal .journal-entry-pages::-webkit-scrollbar-button:vertical:increment,
+.antiquejournal .scrollable::-webkit-scrollbar-button:vertical:increment,
+.antiquejournal .window-content::-webkit-scrollbar-button:vertical:increment {
+  background-image: linear-gradient(45deg, #f4ece0 50%, transparent 50%),
+                    linear-gradient(135deg, transparent 50%, #f4ece0 50%);
+  background-size: 6px 6px, 6px 6px;
+  background-position: 2px 4px, 4px 4px;
+}
+
+/* ============================================================
+   ★ V2-ИСПРАВЛЕНИЯ
+   ============================================================ */
+
+.sheet.journal-entry.antiquejournal .journal-sidebar .toc li.page.active:first-of-type {
+  border-top-color: var(--antique-accent) !important;
+}
+.sheet.journal-entry.antiquejournal .journal-sidebar .toc li.page.active:last-of-type {
+  border-bottom-color: var(--antique-accent) !important;
+}
+.sheet.journal-entry.antiquejournal .journal-sidebar .toc li.page:not(.active) + .active {
+  border-top-color: var(--antique-accent) !important;
+}
+.sheet.journal-entry.antiquejournal .journal-sidebar .toc li.page.active + :not(.active) {
+  border-top-color: var(--antique-accent) !important;
+}
+
+.app.journal-entry.sheet.antiquejournal .pages-list .directory-item.active:first-of-type {
+  border-top: 1px solid var(--antique-accent) !important;
+}
+.app.journal-entry.sheet.antiquejournal .pages-list .directory-item.active:last-of-type {
+  border-bottom: 1px solid var(--antique-accent) !important;
+}
+
+/* ★ НОМЕР СТРАНИЦЫ — НЕ ТРОГАЕМ ВООБЩЕ.
+   Ни цвета, ни шрифта. Полностью отпускаем на волю Foundry. */
+
+.sheet.journal-entry.antiquejournal .journal-sidebar .toc .page-heading .page-title,
+.sheet.journal-entry.antiquejournal .journal-sidebar .toc .page-heading .heading-link,
+.sheet.journal-entry.antiquejournal .journal-sidebar .toc .headings li .heading-link,
+.sheet.journal-entry.antiquejournal .journal-sidebar .toc .page-heading .page-ownership {
+  color: #dceae6 !important;
+  font-family: var(--antique-font-body) !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+}
+
+.sheet.journal-entry.antiquejournal .journal-sidebar .toc .headings li,
+.sheet.journal-entry.antiquejournal .journal-sidebar .toc .headings li a,
+.sheet.journal-entry.antiquejournal .journal-sidebar .toc .headings li .heading-link {
+  color: #dceae6 !important;
+  font-family: var(--antique-font-body) !important;
+}
+
+.sheet.journal-entry.antiquejournal .journal-sidebar .toc li.category strong {
+  color: #dceae6 !important;
+}
+
+.sheet.journal-entry.antiquejournal .journal-sidebar .toc .page-heading:hover .page-title,
+.sheet.journal-entry.antiquejournal .journal-sidebar .toc .heading-link:hover,
+.sheet.journal-entry.antiquejournal .journal-sidebar .toc .page-heading .page-title:hover {
+  color: var(--antique-accent) !important;
+  text-shadow: 0 0 8px var(--antique-accent) !important;
+}
+
+.sheet.journal-entry.antiquejournal .journal-sidebar,
+.sheet.journal-entry.antiquejournal .journal-sidebar .toc {
+  background-color: rgba(45, 57, 57, 0.8) !important;
+  color: #dceae6 !important;
+}
+
+.sheet.journal-entry.antiquejournal {
+  --color-warm-2: #20B2AA !important;
+  --color-border-highlight: #20B2AA !important;
+  --color-shadow-primary: #20B2AA !important;
+}
+/* ============================================
+   ★ ГОРИЗОНТАЛЬНАЯ ЛИНИЯ — заменяем на греческий узор
+   (команда "---" в Markdown создаёт <hr>, высота — как у h2/h3)
+   ============================================ */
+.antiquejournal .journal-page-content hr,
+.antiquejournal .journal-entry-page hr {
+  border: none !important;
+  border-top: none !important;
+  height: 6px;
+  margin: 20px 0;
+  padding: 0;
+  background: var(--antique-greek-pattern) repeat-x center;
+  background-size: auto 6px;
+  opacity: 0.7;
+}

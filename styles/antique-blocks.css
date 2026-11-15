@@ -1,0 +1,1356 @@
+/* ============================================
+   antique-blocks.css
+   ============================================ */
+
+/* ============================================
+   СВИТОК (blockquote) — полностью из CSS
+   Базовый цвет: #f4ece0  ·  Тень: #b0a698  = rgb(176, 166, 152)
+   ============================================ */
+.sheet.journal-entry.antiquejournal .journal-page-content blockquote,
+.antiquejournal .journal-page-content blockquote {
+  position: relative;
+  background-color: #f4ece0;
+  border: none;
+  border-radius: 0;
+
+  padding: 42px 20px;
+  margin: 60px 40px;
+
+  font-family: var(--antique-font-body);
+  color: var(--antique-text);
+  font-style: italic;
+  box-shadow:
+    inset 0 18px 36px rgba(255, 250, 240, 0.5),
+    inset 0 22px 45px rgba(176, 166, 152, 0.12),
+    inset 0 -24px 48px rgba(176, 166, 152, 0.20),
+    inset 24px 0 50px rgba(176, 166, 152, 0.05),
+    inset -24px 0 50px rgba(176, 166, 152, 0.05),
+    var(--antique-block-shadow);
+}
+
+/* ============================================
+   ВЕРХНИЙ СТЕРЖЕНЬ СВИТКА
+   ============================================ */
+.sheet.journal-entry.antiquejournal .journal-page-content blockquote::before,
+.antiquejournal .journal-page-content blockquote::before {
+  content: "";
+  position: absolute;
+  top: -16px;
+  left: -30px;
+  right: -30px;
+  height: 32px;
+  background-image:
+    linear-gradient(180deg,
+      #faf5ec 0%,
+      #f4ece0 50%,
+      #d8cdb8 100%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 32' preserveAspectRatio='none'%3E%3Cpath d='M0 0 L40 16 L0 32 Z' fill='%23008080'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 32' preserveAspectRatio='none'%3E%3Cpath d='M40 0 L0 16 L40 32 Z' fill='%23008080'/%3E%3C/svg%3E");
+  background-size:
+    calc(100% - 40px) 32px,
+    40px 32px,
+    40px 32px;
+  background-position:
+    top center,
+    top left,
+    top right;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  filter:
+    drop-shadow(0 -3px 5px rgba(0, 0, 0, 0.28))
+    drop-shadow(0 4px 10px rgba(0, 0, 0, 0.22));
+}
+
+/* ============================================
+   НИЖНИЙ СТЕРЖЕНЬ СВИТКА
+   ============================================ */
+.sheet.journal-entry.antiquejournal .journal-page-content blockquote::after,
+.antiquejournal .journal-page-content blockquote::after {
+  content: "";
+  position: absolute;
+  bottom: -16px;
+  left: -30px;
+  right: -30px;
+  height: 32px;
+  background-image:
+    linear-gradient(180deg,
+      #d8cdb8 0%,
+      #f4ece0 50%,
+      #faf5ec 100%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 32' preserveAspectRatio='none'%3E%3Cpath d='M0 0 L40 16 L0 32 Z' fill='%23008080'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 32' preserveAspectRatio='none'%3E%3Cpath d='M40 0 L0 16 L40 32 Z' fill='%23008080'/%3E%3C/svg%3E");
+  background-size:
+    calc(100% - 40px) 32px,
+    40px 32px,
+    40px 32px;
+  background-position:
+    top center,
+    top left,
+    top right;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  filter:
+    drop-shadow(0 3px 5px rgba(0, 0, 0, 0.28))
+    drop-shadow(0 -4px 10px rgba(0, 0, 0, 0.22));
+}
+
+.sheet.journal-entry.antiquejournal .journal-page-content blockquote p,
+.antiquejournal .journal-page-content blockquote p {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 12px;
+}
+
+.sheet.journal-entry.antiquejournal .journal-page-content blockquote p:last-child,
+.antiquejournal .journal-page-content blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+/* ============================================
+   БЛОК: NARRATIVE — нарративные заметки
+   ============================================ */
+.antiquejournal .journal-page-content .fvtt.narrative {
+  position: relative;
+  background-color: rgba(250, 246, 236, 0.95);
+  border: none;
+  border-left: 2px solid var(--antique-primary);
+  border-right: 2px solid var(--antique-primary);
+  border-radius: 0;
+  padding: 15px 20px;
+  margin: 30px 30px;
+  font-style: italic;
+  color: var(--antique-text);
+  box-shadow: var(--antique-block-shadow);
+}
+
+.antiquejournal .journal-page-content .fvtt.narrative::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--antique-noise-texture);
+  background-size: 400px 400px;
+  background-repeat: repeat;
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.antiquejournal .journal-page-content .fvtt.narrative::after {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  right: -6px;
+  bottom: -6px;
+  background-image:
+    radial-gradient(circle 5px at 6px 6px, var(--antique-primary) 5px, transparent 5px),
+    radial-gradient(circle 5px at calc(100% - 6px) 6px, var(--antique-primary) 5px, transparent 5px),
+    radial-gradient(circle 5px at 6px calc(100% - 6px), var(--antique-primary) 5px, transparent 5px),
+    radial-gradient(circle 5px at calc(100% - 6px) calc(100% - 6px), var(--antique-primary) 5px, transparent 5px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.antiquejournal .journal-page-content .fvtt.narrative > * {
+  position: relative;
+  z-index: 1;
+}
+
+.antiquejournal .journal-page-content .fvtt.narrative p {
+  margin: 0 0 8px;
+}
+
+.antiquejournal .journal-page-content .fvtt.narrative p:last-child {
+  margin-bottom: 0;
+}
+
+/* ============================================
+   БЛОК: NOTABLE — заметки и важная информация
+   ============================================ */
+.antiquejournal .journal-page-content aside.notable {
+  position: relative;
+  background: linear-gradient(135deg,
+              rgba(0, 128, 128, 0.15) 0%,
+              rgba(32, 178, 170, 0.22) 100%);
+  border: none;
+  border-radius: 0;
+  padding: 15px 20px;
+  margin: 50px 30px;
+  box-shadow: var(--antique-block-shadow);
+  font-family: var(--antique-font-header);
+}
+
+.antiquejournal .journal-page-content aside.notable::before {
+  content: "";
+  position: absolute;
+  top: -12px;
+  left: 0;
+  right: 0;
+  bottom: -12px;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 12' preserveAspectRatio='none'%3E%3Cpath d='M24 0 L24 12 L0 12 Z' fill='%23008080'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 12' preserveAspectRatio='none'%3E%3Cpath d='M0 0 L0 12 L24 12 Z' fill='%23008080'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 12' preserveAspectRatio='none'%3E%3Cpath d='M24 12 L24 0 L0 0 Z' fill='%23008080'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 12' preserveAspectRatio='none'%3E%3Cpath d='M0 12 L0 0 L24 0 Z' fill='%23008080'/%3E%3C/svg%3E"),
+    linear-gradient(#008080, #008080),
+    linear-gradient(#008080, #008080);
+  background-size:
+    24px 12px, 24px 12px, 24px 12px, 24px 12px,
+    100% 2px, 100% 2px;
+  background-position:
+    top left,
+    top right,
+    bottom left,
+    bottom right,
+    0 12px,
+    0 calc(100% - 12px);
+  background-repeat: no-repeat;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.antiquejournal .journal-page-content aside.notable::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--antique-noise-texture);
+  background-size: 400px 400px;
+  background-repeat: repeat;
+  opacity: 0.2;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.antiquejournal .journal-page-content aside.notable > * {
+  position: relative;
+  z-index: 1;
+}
+
+.antiquejournal .journal-page-content aside.notable p {
+  margin: 0 0 8px;
+  color: var(--antique-text);
+  font-family: var(--antique-font-body);
+}
+
+.antiquejournal .journal-page-content aside.notable p:last-child {
+  margin-bottom: 0;
+}
+
+/* ============================================
+   БЛОК: ADVICE — Совет / гранитная плита
+   ============================================ */
+.antiquejournal .journal-page-content .fvtt.advice {
+  position: relative;
+  background-color: #f1f8ff;
+  background-image: var(--antique-noise-texture);
+  background-blend-mode: multiply;
+  background-size: 200px 200px;
+  background-repeat: repeat;
+  border: 2px solid rgba(255, 255, 255, 0.95);
+  border-radius: 6px;
+  padding: 15px 20px;
+  margin: 25px 30px;
+  font-style: italic;
+  color: var(--antique-text);
+  box-shadow: var(--antique-block-shadow);
+}
+
+.antiquejournal .journal-page-content .fvtt.advice p {
+  margin: 0;
+  color: var(--antique-text);
+}
+
+/* ============================================
+   БЛОК: QUEST — задание
+   ============================================ */
+.antiquejournal .journal-page-content .quest {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background-color: rgba(252, 251, 247, 0.95);
+  border: 2px solid var(--antique-primary);
+  border-radius: 0;
+  padding: 15px 20px 15px 45px;
+  margin: 30px 30px;
+  box-shadow: var(--antique-block-shadow);
+  font-family: var(--antique-font-body);
+}
+
+.antiquejournal .journal-page-content .quest::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--antique-noise-texture);
+  background-size: 250px 250px;
+  background-repeat: repeat;
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.antiquejournal .journal-page-content .quest .icon,
+.antiquejournal .journal-page-content .quest article {
+  position: relative;
+  z-index: 1;
+}
+
+.antiquejournal .journal-page-content .quest .icon {
+  position: absolute;
+  left: -30px;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0;
+  width: 60px;
+  height: 60px;
+  z-index: 2;
+}
+
+.antiquejournal .journal-page-content .quest .icon img {
+  display: block;
+  width: 60px;
+  height: 60px;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  background: none;
+  object-fit: cover;
+}
+
+.antiquejournal .journal-page-content .quest article {
+  flex: 1;
+  color: var(--antique-text);
+}
+
+.antiquejournal .journal-page-content .quest article h4 {
+  margin: 0 0 5px;
+  color: var(--antique-primary);
+  font-family: var(--antique-font-header);
+  font-size: 1.2em;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.antiquejournal .journal-page-content .quest article p {
+  margin: 0;
+}
+
+/* ============================================================
+   ★ ТАБЛИЦЫ В ЖУРНАЛЕ
+   ============================================================ */
+.antiquejournal .journal-page-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1em 0;
+  border-top: 2px solid var(--antique-primary);
+  border-bottom: 2px solid var(--antique-primary);
+  border-left: none;
+  border-right: none;
+}
+
+.antiquejournal .journal-page-content table thead {
+  background-color: rgba(32, 178, 170, 0.35) !important;
+  color: var(--antique-text) !important;
+}
+
+.antiquejournal .journal-page-content table thead th {
+  padding: 10px 12px;
+  text-align: left;
+  font-weight: 700;
+  color: var(--antique-text) !important;
+  border-bottom: 2px solid var(--antique-primary) !important;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+.antiquejournal .journal-page-content table tbody td,
+.antiquejournal .journal-page-content table tbody th {
+  padding: 8px 12px;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid var(--antique-primary) !important;
+  color: var(--antique-text);
+  background: transparent;
+}
+
+.antiquejournal .journal-page-content table tbody tr:last-child td,
+.antiquejournal .journal-page-content table tbody tr:last-child th {
+  border-bottom: none !important;
+}
+
+.antiquejournal .journal-page-content table tbody tr:nth-child(odd) {
+  background-color: rgba(32, 178, 170, 0.12) !important;
+}
+
+.antiquejournal .journal-page-content table tbody tr:nth-child(even) {
+  background-color: transparent !important;
+}
+
+.antiquejournal .journal-page-content table tbody tr:hover,
+.antiquejournal .journal-page-content table tbody tr:hover td,
+.antiquejournal .journal-page-content table tbody tr:hover th {
+  background-color: #dceae6 !important;
+  color: var(--antique-text) !important;
+}
+
+.antiquejournal .journal-page-content table.fvtt,
+.antiquejournal .journal-page-content table.roll-table-embed {
+  border-top: 2px solid var(--antique-primary) !important;
+  border-bottom: 2px solid var(--antique-primary) !important;
+  border-left: none !important;
+  border-right: none !important;
+}
+
+.antiquejournal .journal-page-content table.fvtt thead tr,
+.antiquejournal .journal-page-content table.roll-table-embed thead tr {
+  background-color: rgba(32, 178, 170, 0.35) !important;
+}
+
+.antiquejournal .journal-page-content table.fvtt tbody tr:nth-child(odd),
+.antiquejournal .journal-page-content table.roll-table-embed tbody tr:nth-child(odd) {
+  background-color: rgba(32, 178, 170, 0.12) !important;
+}
+
+.antiquejournal .journal-page-content table.fvtt tbody tr:nth-child(even),
+.antiquejournal .journal-page-content table.roll-table-embed tbody tr:nth-child(even) {
+  background-color: transparent !important;
+}
+
+.antiquejournal .journal-page-content table.fvtt tbody tr:hover,
+.antiquejournal .journal-page-content table.roll-table-embed tbody tr:hover {
+  background-color: #dceae6 !important;
+}
+
+.antiquejournal .journal-page-content table.fvtt tbody td,
+.antiquejournal .journal-page-content table.roll-table-embed tbody td {
+  border: none !important;
+  border-bottom: 1px solid var(--antique-primary) !important;
+}
+
+.antiquejournal .journal-page-content table.fvtt tbody tr:last-child td,
+.antiquejournal .journal-page-content table.roll-table-embed tbody tr:last-child td {
+  border-bottom: none !important;
+}
+
+/* ============================================================
+   ★ АВТО-ОФОРМЛЕНИЕ ВСЕХ ИЗОБРАЖЕНИЙ В ЖУРНАЛЕ
+   ============================================================ */
+.antiquejournal .journal-page-content img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 24px;
+  border: 2px solid var(--antique-primary);
+  box-shadow:
+    0 4px 10px rgba(0, 0, 0, 0.18),
+    0 1px 3px  rgba(0, 0, 0, 0.12);
+  margin: 8px 0;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.antiquejournal .journal-page-content img:hover {
+  box-shadow:
+    0 8px 18px rgba(0, 0, 0, 0.25),
+    0 2px 5px  rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.antiquejournal .journal-page-content a.content-link img,
+.antiquejournal .journal-page-content a.inline-roll img,
+.antiquejournal .journal-page-content button img,
+.antiquejournal .journal-page-content .icon img,
+.antiquejournal .journal-page-content .no-style img {
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+  display: inline-block;
+  transform: none !important;
+}
+
+.antiquejournal .journal-page-content img.noborder,
+.antiquejournal .journal-page-content img.no-style {
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.antiquejournal .journal-page-content figure img {
+  margin: 0 auto;
+}
+
+.antiquejournal .journal-page-content blockquote img {
+  max-width: 90%;
+  margin: 8px auto;
+}
+
+/* ============================================================
+   ★ КАСТОМНЫЙ БЛОК: ИЗОБРАЖЕНИЕ С ТЕНЬЮ И ПАРАЛАКСОМ
+   ============================================================ */
+.antiquejournal .journal-page-content img.antique-img {
+  display: block;
+  margin: 30px auto;
+  max-width: 100%;
+  height: auto;
+  border: none !important;
+  border-radius: 6px !important;
+  outline: none !important;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25) !important;
+  transition:
+    transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1),
+    box-shadow 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+  will-change: transform, box-shadow;
+}
+
+.antiquejournal .journal-page-content img.antique-img:hover {
+  transform: translateY(-6px) scale(1.025);
+  box-shadow: 0 18px 32px rgba(0, 0, 0, 0.4) !important;
+}
+
+.antiquejournal .journal-page-content figure.antique-img,
+.antiquejournal .journal-page-content div.antique-img {
+  display: block;
+  margin: 30px auto;
+  padding: 0;
+  background: transparent;
+  border: none !important;
+  box-shadow: none !important;
+  transition:
+    transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1),
+    filter 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.25));
+  will-change: transform, filter;
+}
+
+.antiquejournal .journal-page-content figure.antique-img:hover,
+.antiquejournal .journal-page-content div.antique-img:hover {
+  transform: translateY(-6px) scale(1.02);
+  filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.4));
+}
+
+.antiquejournal .journal-page-content figure.antique-img img,
+.antiquejournal .journal-page-content div.antique-img img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border: none !important;
+  border-radius: 6px !important;
+  outline: none !important;
+  box-shadow: none !important;
+  margin: 0 auto;
+}
+
+.antiquejournal .journal-page-content figure.antique-img figcaption {
+  margin-top: 8px;
+  text-align: center;
+  font-style: italic;
+  color: var(--antique-text);
+}
+
+/* ============================================================
+   ★ EMBED — общий контейнер, только для СТАТБЛОКА
+   (через :has(.statblock) — простой @Embed без statblock
+    эту плиту НЕ получит, он раскрывает описание как есть)
+   ============================================================ */
+.antiquejournal .journal-page-content .content-embed:has(.statblock),
+.antiquejournal .journal-page-content figure.content-embed:has(.statblock) {
+  background-color: #e7ebef !important;
+  background-image: var(--antique-noise-texture) !important;
+  background-blend-mode: multiply !important;
+  background-size: 200px 200px !important;
+  background-repeat: repeat !important;
+
+  border: 2px solid rgba(255, 255, 255, 0.95) !important;
+  border-radius: 6px !important;
+
+  padding: 10px 14px !important;
+  margin: 15px 20px !important;
+
+  box-shadow:
+    var(--antique-block-shadow),
+    0 6px 14px -4px rgba(0, 0, 0, 0.28) !important;
+
+  width: 400px !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+
+  font-family: var(--antique-font-body) !important;
+  font-size: 0.9em !important;
+  line-height: 1.35 !important;
+  color: var(--antique-text) !important;
+
+  overflow-wrap: break-word !important;
+  word-break: break-word !important;
+  overflow: hidden !important;
+}
+
+.antiquejournal .journal-page-content .content-embed:has(.statblock),
+.antiquejournal .journal-page-content .content-embed:has(.statblock) * {
+  text-shadow: none !important;
+  font-weight: normal !important;
+}
+
+.antiquejournal .journal-page-content .content-embed .statblock,
+.antiquejournal .journal-page-content .statblock.npc {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  width: auto !important;
+  max-width: 100% !important;
+}
+
+/* ============================================================
+   ★ ЗАГОЛОВОК СТАТБЛОКА — общий для 2014 и 2024
+   ============================================================ */
+.antiquejournal .journal-page-content .content-embed .statblock-title,
+.antiquejournal .journal-page-content .content-embed .statblock-title a,
+.antiquejournal .journal-page-content .content-embed .statblock-title strong,
+.antiquejournal .journal-page-content .content-embed .statblock-actions-title,
+.antiquejournal .journal-page-content .content-embed .statblock-actions-title strong,
+.antiquejournal .journal-page-content .content-embed dt {
+  font-weight: 700 !important;
+}
+
+.antiquejournal .journal-page-content .content-embed .statblock-title {
+  display: block !important;
+  font-family: var(--antique-font-header) !important;
+  color: var(--antique-text) !important;
+  font-size: 1.8em !important;
+  line-height: 1.15 !important;
+  margin: 0 0 4px 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  text-transform: none !important;
+  letter-spacing: 0.3px !important;
+}
+
+.antiquejournal .journal-page-content .content-embed .statblock-title a,
+.antiquejournal .journal-page-content .content-embed .statblock-title a.content-link {
+  color: var(--antique-text) !important;
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+  font-size: inherit !important;
+  font-family: inherit !important;
+  font-weight: 700 !important;
+}
+
+.antiquejournal .journal-page-content .content-embed .statblock-title i,
+.antiquejournal .journal-page-content .content-embed .statblock-title .fa-solid,
+.antiquejournal .journal-page-content .content-embed .statblock-title .fas {
+  color: var(--antique-primary) !important;
+  margin-right: 6px;
+  font-size: 0.8em !important;
+}
+
+.antiquejournal .journal-page-content .content-embed .statblock-tags {
+  display: block !important;
+  font-style: italic !important;
+  font-size: 0.9em !important;
+  color: var(--antique-text) !important;
+  margin: 0 0 6px 0 !important;
+  opacity: 0.85;
+}
+
+/* ============================================================
+   ★ СЛУЖЕБНЫЕ th — пустые плейсхолдеры (только внутри СТАТБЛОКА)
+   ============================================================ */
+.antiquejournal .journal-page-content .content-embed:has(.statblock) table thead th.visually-hidden {
+  visibility: hidden !important;
+  position: static !important;
+  clip: auto !important;
+  clip-path: none !important;
+  width: 1px !important;
+  max-width: 1px !important;
+  height: auto !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+  font-size: 0 !important;
+  line-height: 0 !important;
+  letter-spacing: 0 !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+  background: transparent !important;
+}
+
+/* ============================================================
+   ★ ТАБЛИЦЫ ВНУТРИ .content-embed — только когда это СТАТБЛОК
+   ============================================================ */
+.antiquejournal .journal-page-content .content-embed:has(.statblock) table,
+.antiquejournal .journal-page-content .content-embed:has(.statblock) table thead,
+.antiquejournal .journal-page-content .content-embed:has(.statblock) table tbody,
+.antiquejournal .journal-page-content .content-embed:has(.statblock) table tr,
+.antiquejournal .journal-page-content .content-embed:has(.statblock) table th,
+.antiquejournal .journal-page-content .content-embed:has(.statblock) table td {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  color: var(--antique-text) !important;
+}
+
+.antiquejournal .journal-page-content .content-embed:has(.statblock) table {
+  width: auto !important;
+  max-width: 100% !important;
+  margin: 2px 0 !important;
+  border-collapse: separate !important;
+  border-spacing: 1px !important;
+  table-layout: auto !important;
+}
+
+.antiquejournal .journal-page-content .content-embed:has(.statblock) table th,
+.antiquejournal .journal-page-content .content-embed:has(.statblock) table td {
+  padding: 1px 4px !important;
+  font-size: 0.85em !important;
+  line-height: 1.15 !important;
+  text-align: center !important;
+  width: auto !important;
+  min-width: 0 !important;
+  white-space: nowrap !important;
+  vertical-align: middle !important;
+  border-radius: 2px !important;
+}
+
+.antiquejournal .journal-page-content .content-embed:has(.statblock) table thead th {
+  background-color: rgba(0, 128, 128, 0.18) !important;
+  padding: 1px 4px !important;
+}
+
+.antiquejournal .journal-page-content .content-embed:has(.statblock) table thead th:nth-child(3) {
+  background-color: rgba(0, 128, 128, 0.22) !important;
+}
+.antiquejournal .journal-page-content .content-embed:has(.statblock) table thead th:nth-child(4) {
+  background-color: rgba(32, 178, 170, 0.18) !important;
+}
+
+.antiquejournal .journal-page-content .content-embed:has(.statblock) table tbody tr > *:nth-child(1) {
+  background-color: rgba(0, 128, 128, 0.08) !important;
+  text-align: left !important;
+  padding-left: 5px !important;
+  padding-right: 5px !important;
+}
+.antiquejournal .journal-page-content .content-embed:has(.statblock) table tbody tr > *:nth-child(2) {
+  background-color: rgba(32, 178, 170, 0.22) !important;
+}
+.antiquejournal .journal-page-content .content-embed:has(.statblock) table tbody tr > *:nth-child(3) {
+  background-color: rgba(0, 128, 128, 0.13) !important;
+}
+.antiquejournal .journal-page-content .content-embed:has(.statblock) table tbody tr > *:nth-child(4) {
+  background-color: rgba(32, 178, 170, 0.10) !important;
+}
+
+.antiquejournal .journal-page-content .content-embed:has(.statblock) table tbody tr:hover > * {
+  background-color: #dceae6 !important;
+}
+
+/* ============================================================
+   ★ ВЕРХНИЙ БЛОК С ХАРАКТЕРИСТИКАМИ (шапка statblock-header)
+   ============================================================ */
+.antiquejournal .journal-page-content .content-embed .statblock-header {
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  max-width: 100% !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  overflow: visible !important;
+}
+
+.antiquejournal .journal-page-content .content-embed .statblock-header dl {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 1px 16px !important;
+  margin: 2px 0 !important;
+  padding: 0 !important;
+  max-width: 100% !important;
+  visibility: visible !important;
+}
+
+.antiquejournal .journal-page-content .content-embed:has(.statblock) dl > div.half-width,
+.antiquejournal .journal-page-content .content-embed:has(.statblock) .half-width {
+  display: flex !important;
+  gap: 4px !important;
+  align-items: baseline !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  flex: 0 1 auto !important;
+  width: auto !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  flex-wrap: wrap !important;
+  overflow-wrap: break-word !important;
+}
+
+.antiquejournal .journal-page-content .content-embed .statblock-header dl > div:not(.half-width) {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 4px !important;
+  align-items: baseline !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  flex: 0 0 100% !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+}
+
+.antiquejournal .journal-page-content .content-embed:has(.statblock) dt {
+  flex: 0 0 auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: var(--antique-text) !important;
+  white-space: nowrap !important;
+}
+
+.antiquejournal .journal-page-content .content-embed:has(.statblock) dd {
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: var(--antique-text) !important;
+  white-space: normal !important;
+  overflow-wrap: break-word !important;
+  word-break: break-word !important;
+  max-width: 100% !important;
+}
+
+.antiquejournal .journal-page-content .content-embed:has(.statblock) .half-width dd,
+.antiquejournal .journal-page-content .content-embed:has(.statblock) .half-width dd + dd,
+.antiquejournal .journal-page-content .content-embed:has(.statblock) .half-width dt + dd,
+.antiquejournal .journal-page-content .content-embed:has(.statblock) .half-width dt + dd + dd {
+  flex: 0 1 auto !important;
+  width: auto !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  white-space: normal !important;
+  overflow-wrap: break-word !important;
+  word-break: break-word !important;
+}
+
+.antiquejournal .journal-page-content .content-embed .statblock-header div > dd + dd {
+  margin-left: 3px !important;
+}
+
+/* ============================================================
+   ★ ДЕЙСТВИЯ И РЕАКЦИИ — общие
+   ============================================================ */
+.antiquejournal .journal-page-content .content-embed .statblock-actions {
+  margin: 4px 0 0 0 !important;
+  padding: 0 !important;
+  max-width: 100% !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.antiquejournal .journal-page-content .content-embed .statblock-actions-title {
+  display: block !important;
+  font-family: var(--antique-font-header) !important;
+  font-size: 1.4em !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  margin: 6px 0 2px 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  color: var(--antique-text) !important;
+  text-transform: none !important;
+  letter-spacing: 0.3px !important;
+}
+
+.antiquejournal .journal-page-content .content-embed .statblock-action {
+  margin: 2px 0 !important;
+  padding: 0 !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* ============================================================
+   ★ ОБЩИЕ СБРОСЫ ДЛЯ КОНТЕНТА ВНУТРИ .content-embed — только СТАТБЛОК
+   ============================================================ */
+.antiquejournal .journal-page-content .content-embed:has(.statblock) h1,
+.antiquejournal .journal-page-content .content-embed:has(.statblock) h2,
+.antiquejournal .journal-page-content .content-embed:has(.statblock) h3,
+.antiquejournal .journal-page-content .content-embed:has(.statblock) h4,
+.antiquejournal .journal-page-content .content-embed:has(.statblock) h5,
+.antiquejournal .journal-page-content .content-embed:has(.statblock) h6 {
+  border: none !important;
+  padding: 0 !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+  color: var(--antique-text) !important;
+  font-family: var(--antique-font-header) !important;
+}
+
+.antiquejournal .journal-page-content .content-embed:has(.statblock) h1::after,
+.antiquejournal .journal-page-content .content-embed:has(.statblock) h2::after,
+.antiquejournal .journal-page-content .content-embed:has(.statblock) h3::after,
+.antiquejournal .journal-page-content .content-embed:has(.statblock) h4::after,
+.antiquejournal .journal-page-content .content-embed:has(.statblock) h5::after,
+.antiquejournal .journal-page-content .content-embed:has(.statblock) h6::after {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+  height: 0 !important;
+}
+
+.antiquejournal .journal-page-content .content-embed:has(.statblock) p {
+  margin: 2px 0 !important;
+  padding: 0 !important;
+  line-height: 1.35 !important;
+  overflow-wrap: break-word !important;
+  word-break: break-word !important;
+}
+
+.antiquejournal .journal-page-content .content-embed:has(.statblock) ul,
+.antiquejournal .journal-page-content .content-embed:has(.statblock) ol {
+  margin: 2px 0 !important;
+  padding-left: 1.2em !important;
+}
+
+.antiquejournal .journal-page-content .content-embed:has(.statblock) li {
+  margin: 0 !important;
+  line-height: 1.35 !important;
+}
+
+.antiquejournal .journal-page-content .content-embed:has(.statblock) em {
+  font-style: italic !important;
+}
+
+.antiquejournal .journal-page-content .content-embed:has(.statblock) a,
+.antiquejournal .journal-page-content .content-embed:has(.statblock) a.content-link,
+.antiquejournal .journal-page-content .content-embed:has(.statblock) a.inline-roll,
+.antiquejournal .journal-page-content .content-embed:has(.statblock) span.roll-link a {
+  color: var(--antique-primary) !important;
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+  text-decoration: none !important;
+  overflow-wrap: break-word !important;
+  word-break: break-word !important;
+}
+
+.antiquejournal .journal-page-content .content-embed:has(.statblock) a:hover {
+  color: var(--antique-accent) !important;
+}
+
+.antiquejournal .journal-page-content .content-embed:has(.statblock) hr {
+  margin: 4px 0 !important;
+  border: none !important;
+  border-top: 1px solid var(--antique-primary) !important;
+  opacity: 0.35 !important;
+}
+
+.antiquejournal .journal-page-content .content-embed .statblock-actions-title,
+.antiquejournal .journal-page-content .content-embed .statblock-actions-title strong,
+.antiquejournal .journal-page-content .content-embed .statblock-actions-title h5,
+.antiquejournal .journal-page-content .content-embed .statblock-actions-title h4,
+.antiquejournal .journal-page-content .content-embed [class*="statblock-actions-title"] {
+  font-weight: 700 !important;
+  text-shadow: none !important;
+}
+
+.antiquejournal .journal-page-content .content-embed .statblock-action .name,
+.antiquejournal .journal-page-content .content-embed .statblock-action span.name,
+.antiquejournal .journal-page-content .content-embed .statblock-action p > span.name,
+.antiquejournal .journal-page-content .content-embed .statblock-action strong.name,
+.antiquejournal .journal-page-content .content-embed .statblock-action > p > strong:first-child {
+  font-weight: 700 !important;
+  text-shadow: none !important;
+}
+
+.antiquejournal .journal-page-content .content-embed .statblock-action .name::after {
+  content: " " !important;
+  font-weight: normal !important;
+}
+
+/* ============================================================
+   ★ ПАТТЕРН ПОД ЗАГОЛОВКАМИ СТАТБЛОКА — ОБА ФОРМАТА (2014 / 2024)
+   ============================================================ */
+.antiquejournal .journal-page-content .content-embed .statblock-title::after,
+.antiquejournal .journal-page-content .content-embed h4.statblock-title::after,
+.antiquejournal .journal-page-content .content-embed h5.statblock-title::after,
+.antiquejournal .journal-page-content .content-embed h6.statblock-title::after,
+.antiquejournal .journal-page-content .content-embed .statblock-actions-title::after,
+.antiquejournal .journal-page-content .content-embed h4.statblock-actions-title::after,
+.antiquejournal .journal-page-content .content-embed h5.statblock-actions-title::after {
+  content: "" !important;
+  display: block !important;
+  width: 100% !important;
+  height: 6px !important;
+  margin: 5px 0 6px 0 !important;
+  padding: 0 !important;
+  background-color: transparent !important;
+  background-image: var(--antique-greek-pattern) !important;
+  background-repeat: repeat-x !important;
+  background-position: left center !important;
+  background-size: auto 6px !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  opacity: 0.85 !important;
+  pointer-events: none !important;
+}
+
+/* ============================================================
+   ★ СТАТБЛОК ФОРМАТА 2014 (dnd5e 3.x / rules-2014)
+   ============================================================ */
+.antiquejournal .journal-page-content .content-embed .statblock-content,
+.antiquejournal .journal-page-content .content-embed .statblock-body {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  max-width: 100% !important;
+  overflow: visible !important;
+}
+
+.antiquejournal .journal-page-content .content-embed .abilities {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 4px 6px !important;
+  margin: 4px 0 !important;
+  padding: 0 !important;
+  align-items: flex-start !important;
+  max-width: 100% !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  overflow: visible !important;
+}
+
+.antiquejournal .journal-page-content .content-embed .abilities > table,
+.antiquejournal .journal-page-content .content-embed .statblock-abilities > table,
+.antiquejournal .journal-page-content .content-embed .ability-scores > table,
+.antiquejournal .journal-page-content .content-embed .ability-block > table,
+.antiquejournal .journal-page-content .content-embed .abilities table,
+.antiquejournal .journal-page-content .content-embed .statblock-abilities table,
+.antiquejournal .journal-page-content .content-embed .ability-scores table,
+.antiquejournal .journal-page-content .content-embed .ability-block table {
+  display: table !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  flex: 0 1 auto !important;
+  width: auto !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  table-layout: auto !important;
+  border-collapse: separate !important;
+  border-spacing: 1px !important;
+}
+
+.antiquejournal .journal-page-content .content-embed .abilities table tr,
+.antiquejournal .journal-page-content .content-embed .statblock-abilities table tr,
+.antiquejournal .journal-page-content .content-embed .ability-scores table tr,
+.antiquejournal .journal-page-content .content-embed .ability-block table tr {
+  display: table-row !important;
+  visibility: visible !important;
+}
+
+.antiquejournal .journal-page-content .content-embed .abilities table th,
+.antiquejournal .journal-page-content .content-embed .abilities table td,
+.antiquejournal .journal-page-content .content-embed .statblock-abilities table th,
+.antiquejournal .journal-page-content .content-embed .statblock-abilities table td,
+.antiquejournal .journal-page-content .content-embed .ability-scores table th,
+.antiquejournal .journal-page-content .content-embed .ability-scores table td,
+.antiquejournal .journal-page-content .content-embed .ability-block table th,
+.antiquejournal .journal-page-content .content-embed .ability-block table td {
+  display: table-cell !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  overflow: visible !important;
+}
+
+/* ============================================================
+   ★ 2014: КАЖДАЯ ХАРАКТЕРИСТИКА — ЭТО .ability (div + span)
+   ============================================================ */
+.antiquejournal .journal-page-content .content-embed .abilities > .ability,
+.antiquejournal .journal-page-content .content-embed .statblock-abilities > .ability,
+.antiquejournal .journal-page-content .content-embed .ability-scores > .ability,
+.antiquejournal .journal-page-content .content-embed .ability-block > .ability,
+.antiquejournal .journal-page-content .content-embed .abilities .ability {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0 !important;
+  padding: 4px 8px !important;
+  min-width: 52px !important;
+  flex: 0 0 auto !important;
+  margin: 0 !important;
+  background-color: rgba(32, 178, 170, 0.15) !important;
+  border-radius: 3px !important;
+  box-sizing: border-box !important;
+  text-align: center !important;
+  line-height: 1.1 !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  overflow: visible !important;
+}
+
+.antiquejournal .journal-page-content .content-embed .abilities .ability .name,
+.antiquejournal .journal-page-content .content-embed .statblock-abilities .ability .name,
+.antiquejournal .journal-page-content .content-embed .ability-scores .ability .name,
+.antiquejournal .journal-page-content .content-embed .ability-block .ability .name {
+  display: block !important;
+  font-weight: 700 !important;
+  font-size: 0.72em !important;
+  letter-spacing: 0.5px !important;
+  text-transform: uppercase !important;
+  color: var(--antique-text) !important;
+  white-space: nowrap !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.antiquejournal .journal-page-content .content-embed .abilities .ability .score,
+.antiquejournal .journal-page-content .content-embed .statblock-abilities .ability .score,
+.antiquejournal .journal-page-content .content-embed .ability-scores .ability .score,
+.antiquejournal .journal-page-content .content-embed .ability-block .ability .score {
+  display: block !important;
+  font-size: 0.85em !important;
+  font-weight: 400 !important;
+  color: var(--antique-text) !important;
+  white-space: nowrap !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.antiquejournal .journal-page-content .content-embed .statblock.rules-2014 .statblock-header dl {
+  gap: 1px 14px !important;
+}
+
+.antiquejournal .journal-page-content .content-embed .statblock.rules-2014 .statblock-header dl > div,
+.antiquejournal .journal-page-content .content-embed .statblock.rules-2014 .statblock-header dl > div:not(.half-width) {
+  flex: 0 1 auto !important;
+  width: auto !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 4px !important;
+  align-items: baseline !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.antiquejournal .journal-page-content .content-embed .statblock.rules-2014 .statblock-header dl > dt,
+.antiquejournal .journal-page-content .content-embed .statblock.rules-2014 .statblock-header dl > dd {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.antiquejournal .journal-page-content .content-embed .statblock-title,
+.antiquejournal .journal-page-content .content-embed .statblock-tags,
+.antiquejournal .journal-page-content .content-embed .statblock-actions,
+.antiquejournal .journal-page-content .content-embed .statblock-action,
+.antiquejournal .journal-page-content .content-embed .statblock-header {
+  visibility: visible !important;
+  opacity: 1 !important;
+  overflow: visible !important;
+  max-width: 100% !important;
+}
+
+/* ============================================================
+   ★★★ ДВУХКОЛОНОЧНЫЙ СТАТБЛОК (double-column) ★★★
+   ============================================================ */
+
+/* --- 1) Снимаем ограничение ширины 400px только для double-column --- */
+.antiquejournal .journal-page-content .double-column .content-embed,
+.antiquejournal .journal-page-content .double-column > .content-embed,
+.antiquejournal .journal-page-content document-embed.double-column > .content-embed,
+.antiquejournal .journal-page-content document-embed.double-column figure.content-embed,
+.antiquejournal .journal-page-content document-embed[class*="double-column"] > .content-embed,
+.antiquejournal .journal-page-content document-embed[class*="double-column"] figure.content-embed,
+.antiquejournal .journal-page-content .content-embed.double-column,
+.antiquejournal .journal-page-content .content-embed[class*="double-column"] {
+  width: auto !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* --- 2) Разбиваем .statblock-content на 2 колонки через multi-column --- */
+.antiquejournal .journal-page-content .double-column .content-embed .statblock-content,
+.antiquejournal .journal-page-content document-embed.double-column .content-embed .statblock-content,
+.antiquejournal .journal-page-content document-embed[class*="double-column"] .content-embed .statblock-content,
+.antiquejournal .journal-page-content .content-embed.double-column .statblock-content,
+.antiquejournal .journal-page-content .content-embed[class*="double-column"] .statblock-content {
+  display: block !important;
+  column-count: 2 !important;
+  column-gap: 10px !important;
+  column-fill: balance !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: visible !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* --- 3) Отменяем прежние grid-column (если где-то остались) --- */
+.antiquejournal .journal-page-content .double-column .content-embed .statblock-content > .statblock-header,
+.antiquejournal .journal-page-content .double-column .content-embed .statblock-content > .statblock-actions,
+.antiquejournal .journal-page-content document-embed.double-column .content-embed .statblock-content > .statblock-header,
+.antiquejournal .journal-page-content document-embed.double-column .content-embed .statblock-content > .statblock-actions,
+.antiquejournal .journal-page-content document-embed[class*="double-column"] .content-embed .statblock-content > .statblock-header,
+.antiquejournal .journal-page-content document-embed[class*="double-column"] .content-embed .statblock-content > .statblock-actions,
+.antiquejournal .journal-page-content .content-embed.double-column .statblock-content > .statblock-header,
+.antiquejournal .journal-page-content .content-embed.double-column .statblock-content > .statblock-actions,
+.antiquejournal .journal-page-content .content-embed[class*="double-column"] .statblock-content > .statblock-header,
+.antiquejournal .journal-page-content .content-embed[class*="double-column"] .statblock-content > .statblock-actions {
+  grid-column: auto !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+}
+
+/* --- 4) Убираем вертикальную линию и лишний отступ у actions --- */
+.antiquejournal .journal-page-content .double-column .content-embed .statblock-content > .statblock-actions,
+.antiquejournal .journal-page-content document-embed.double-column .content-embed .statblock-content > .statblock-actions,
+.antiquejournal .journal-page-content document-embed[class*="double-column"] .content-embed .statblock-content > .statblock-actions,
+.antiquejournal .journal-page-content .content-embed.double-column .statblock-content > .statblock-actions,
+.antiquejournal .journal-page-content .content-embed[class*="double-column"] .statblock-content > .statblock-actions {
+  padding-left: 0 !important;
+  border-left: none !important;
+}
+
+/* --- 5) Запрещаем разрыв ВНУТРИ мелких элементов --- */
+.antiquejournal .journal-page-content .double-column .content-embed .statblock-header,
+.antiquejournal .journal-page-content .double-column .content-embed .statblock-title,
+.antiquejournal .journal-page-content .double-column .content-embed .statblock-tags,
+.antiquejournal .journal-page-content .double-column .content-embed .abilities,
+.antiquejournal .journal-page-content .double-column .content-embed .ability,
+.antiquejournal .journal-page-content .double-column .content-embed .statblock-actions-title,
+.antiquejournal .journal-page-content .double-column .content-embed .statblock-action,
+.antiquejournal .journal-page-content document-embed.double-column .content-embed .statblock-header,
+.antiquejournal .journal-page-content document-embed.double-column .content-embed .statblock-title,
+.antiquejournal .journal-page-content document-embed.double-column .content-embed .statblock-tags,
+.antiquejournal .journal-page-content document-embed.double-column .content-embed .abilities,
+.antiquejournal .journal-page-content document-embed.double-column .content-embed .ability,
+.antiquejournal .journal-page-content document-embed.double-column .content-embed .statblock-actions-title,
+.antiquejournal .journal-page-content document-embed.double-column .content-embed .statblock-action,
+.antiquejournal .journal-page-content document-embed[class*="double-column"] .content-embed .statblock-header,
+.antiquejournal .journal-page-content document-embed[class*="double-column"] .content-embed .statblock-title,
+.antiquejournal .journal-page-content document-embed[class*="double-column"] .content-embed .statblock-tags,
+.antiquejournal .journal-page-content document-embed[class*="double-column"] .content-embed .abilities,
+.antiquejournal .journal-page-content document-embed[class*="double-column"] .content-embed .ability,
+.antiquejournal .journal-page-content document-embed[class*="double-column"] .content-embed .statblock-actions-title,
+.antiquejournal .journal-page-content document-embed[class*="double-column"] .content-embed .statblock-action,
+.antiquejournal .journal-page-content .content-embed.double-column .statblock-header,
+.antiquejournal .journal-page-content .content-embed.double-column .statblock-title,
+.antiquejournal .journal-page-content .content-embed.double-column .statblock-tags,
+.antiquejournal .journal-page-content .content-embed.double-column .abilities,
+.antiquejournal .journal-page-content .content-embed.double-column .ability,
+.antiquejournal .journal-page-content .content-embed.double-column .statblock-actions-title,
+.antiquejournal .journal-page-content .content-embed.double-column .statblock-action,
+.antiquejournal .journal-page-content .content-embed[class*="double-column"] .statblock-header,
+.antiquejournal .journal-page-content .content-embed[class*="double-column"] .statblock-title,
+.antiquejournal .journal-page-content .content-embed[class*="double-column"] .statblock-tags,
+.antiquejournal .journal-page-content .content-embed[class*="double-column"] .abilities,
+.antiquejournal .journal-page-content .content-embed[class*="double-column"] .ability,
+.antiquejournal .journal-page-content .content-embed[class*="double-column"] .statblock-actions-title,
+.antiquejournal .journal-page-content .content-embed[class*="double-column"] .statblock-action {
+  break-inside: avoid !important;
+  -webkit-column-break-inside: avoid !important;
+  page-break-inside: avoid !important;
+}
+
+/* --- 6) .statblock-actions и .statblock-content МОГУТ рваться между колонками --- */
+.antiquejournal .journal-page-content .double-column .content-embed .statblock-content > .statblock-actions,
+.antiquejournal .journal-page-content .double-column .content-embed .statblock-actions,
+.antiquejournal .journal-page-content document-embed.double-column .content-embed .statblock-content > .statblock-actions,
+.antiquejournal .journal-page-content document-embed.double-column .content-embed .statblock-actions,
+.antiquejournal .journal-page-content document-embed[class*="double-column"] .content-embed .statblock-content > .statblock-actions,
+.antiquejournal .journal-page-content document-embed[class*="double-column"] .content-embed .statblock-actions,
+.antiquejournal .journal-page-content .content-embed.double-column .statblock-content > .statblock-actions,
+.antiquejournal .journal-page-content .content-embed.double-column .statblock-actions,
+.antiquejournal .journal-page-content .content-embed[class*="double-column"] .statblock-content > .statblock-actions,
+.antiquejournal .journal-page-content .content-embed[class*="double-column"] .statblock-actions {
+  break-inside: auto !important;
+  -webkit-column-break-inside: auto !important;
+  page-break-inside: auto !important;
+}
+
+/* --- 7) .abilities в широком режиме — растягивается по колонке --- */
+.antiquejournal .journal-page-content .double-column .content-embed .abilities,
+.antiquejournal .journal-page-content document-embed.double-column .content-embed .abilities,
+.antiquejournal .journal-page-content document-embed[class*="double-column"] .content-embed .abilities,
+.antiquejournal .journal-page-content .content-embed.double-column .abilities,
+.antiquejournal .journal-page-content .content-embed[class*="double-column"] .abilities {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* --- 8) Каждая .ability в 2-колоночном режиме — чуть крупнее --- */
+.antiquejournal .journal-page-content .double-column .content-embed .abilities .ability,
+.antiquejournal .journal-page-content document-embed.double-column .content-embed .abilities .ability,
+.antiquejournal .journal-page-content document-embed[class*="double-column"] .content-embed .abilities .ability,
+.antiquejournal .journal-page-content .content-embed.double-column .abilities .ability,
+.antiquejournal .journal-page-content .content-embed[class*="double-column"] .abilities .ability {
+  min-width: 58px !important;
+  padding: 6px 10px !important;
+}
+
+/* --- 9) Таблицы (2024) в широком режиме — больше воздуха --- */
+.antiquejournal .journal-page-content .double-column .content-embed table th,
+.antiquejournal .journal-page-content .double-column .content-embed table td,
+.antiquejournal .journal-page-content document-embed.double-column .content-embed table th,
+.antiquejournal .journal-page-content document-embed.double-column .content-embed table td,
+.antiquejournal .journal-page-content document-embed[class*="double-column"] .content-embed table th,
+.antiquejournal .journal-page-content document-embed[class*="double-column"] .content-embed table td,
+.antiquejournal .journal-page-content .content-embed.double-column table th,
+.antiquejournal .journal-page-content .content-embed.double-column table td,
+.antiquejournal .journal-page-content .content-embed[class*="double-column"] table th,
+.antiquejournal .journal-page-content .content-embed[class*="double-column"] table td {
+  padding: 2px 6px !important;
+}
+
+/* --- 10) Адаптив: на узких экранах снова 1 колонка --- */
+@media (max-width: 700px) {
+  .antiquejournal .journal-page-content .double-column .content-embed .statblock-content,
+  .antiquejournal .journal-page-content document-embed.double-column .content-embed .statblock-content,
+  .antiquejournal .journal-page-content document-embed[class*="double-column"] .content-embed .statblock-content,
+  .antiquejournal .journal-page-content .content-embed.double-column .statblock-content,
+  .antiquejournal .journal-page-content .content-embed[class*="double-column"] .statblock-content {
+    column-count: 1 !important;
+  }
+}
+
+/* ============================================================
+   ★ ДОБАВЛЕНО: 2024 — 1px зазоры и узкие колонки характеристик
+   Только для .rules-2024. 2014 и double-column — не трогаются.
+   ============================================================ */
+
+/* 1) Зазор между табличками характеристик = 1px,
+      зазор между колонками внутри каждой таблицы = 1px */
+.antiquejournal .journal-page-content .content-embed .statblock.rules-2024 .abilities {
+  gap: 1px 1px !important;
+}
+
+/* 2) Таблицы внутри .abilities — тоже 1px между колонками */
+.antiquejournal .journal-page-content .content-embed .statblock.rules-2024 .abilities > table,
+.antiquejournal .journal-page-content .content-embed .statblock.rules-2024 .abilities table {
+  border-spacing: 1px !important;
+  margin: 0 !important;
+}
+
+/* 3) Колонки чуть уже — поджимаем padding по горизонтали
+      и слегка уменьшаем шрифт */
+.antiquejournal .journal-page-content .content-embed .statblock.rules-2024 .abilities table th,
+.antiquejournal .journal-page-content .content-embed .statblock.rules-2024 .abilities table td {
+  padding: 1px 2px !important;
+  font-size: 0.8em !important;
+}
+
+/* 4) Первая колонка (имя характеристики) — тоже поджимаем,
+      но оставляем небольшой отступ слева, чтобы буквы не липли */
+.antiquejournal .journal-page-content .content-embed .statblock.rules-2024 .abilities table tbody tr > *:nth-child(1),
+.antiquejournal .journal-page-content .content-embed .statblock.rules-2024 .abilities table > * > tr > *:nth-child(1) {
+  padding-left: 3px !important;
+  padding-right: 1px !important;
+}
+
+/* 5) Соседние колонки значений/мод/спас — ещё компактнее */
+.antiquejournal .journal-page-content .content-embed .statblock.rules-2024 .abilities table > * > tr > *:nth-child(2),
+.antiquejournal .journal-page-content .content-embed .statblock.rules-2024 .abilities table > * > tr > *:nth-child(3),
+.antiquejournal .journal-page-content .content-embed .statblock.rules-2024 .abilities table > * > tr > *:nth-child(4) {
+  padding-left: 1px !important;
+  padding-right: 1px !important;
+}

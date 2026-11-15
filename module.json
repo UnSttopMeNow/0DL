@@ -1,0 +1,94 @@
+{
+  "id": "unst-odyssey-of-the-dragonlords",
+  "title": "Одиссея Повелителей Драконов",
+  "version": "1.0.0",
+  "compatibility": {
+    "minimum": "13",
+    "verified": "13"
+  },
+  "authors": [
+    {
+      "name": "UnSttopMeNow",
+      "flags": {}
+    }
+  ],
+  "esmodules": [
+    "scripts/journal-sheet.mjs"
+  ],
+  "styles": [
+    {
+      "src": "styles/antique-main.css"
+    }
+  ],
+  "flags": {
+    "canUpload": true
+  },
+  "packs": [
+    {
+      "name": "Odyssey-of-the-Dragonlords",
+      "label": "Odyssey of the Dragonlords",
+      "path": "packs/Odyssey-of-the-Dragonlords",
+      "type": "Adventure",
+      "system": "dnd5e",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "Odyssey-subclasses",
+      "label": "Архетипы Одессеи",
+      "path": "packs/Odyssey-subclasses",
+      "type": "Item",
+      "system": "dnd5e",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "Odyssey-scenes",
+      "label": "Сцены Одессеи",
+      "path": "packs/Odyssey-scenes",
+      "type": "Scene",
+      "system": "dnd5e",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "Odyssey-actors",
+      "label": "Персонажи Одессеи",
+      "path": "packs/Odyssey-actors",
+      "type": "Actor",
+      "system": "dnd5e",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    }
+  ],
+  "relationships": {
+    "systems": [
+      {
+        "id": "dnd5e",
+        "type": "system",
+        "compatibility": {}
+      }
+    ],
+    "requires": [
+      {
+        "id": "fifthpendium",
+        "type": "module",
+        "compatibility": {}
+      },
+      {
+        "id": "ru-ru",
+        "type": "module",
+        "compatibility": {}
+      }
+    ]
+  },
+  "description": ""
+}
