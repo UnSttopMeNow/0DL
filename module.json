@@ -8,7 +8,8 @@
   },
   "authors": [
     {
-      "name": "UnSttopMeNow",
+      "name": "Toad Tales",
+      "url": "https://boosty.to/toadtales",
       "flags": {}
     }
   ],
@@ -90,5 +91,8 @@
       }
     ]
   },
-  "description": ""
+  "description": "<p>Одиссея повелителей драконов сочетает эпическую историю со структурированным открытым миром. По мере того, как игроки завершают этапы истории, им становятся доступны новые части Тилеи. История разделена на пролог и пять актов, последний из которых является эпическим финалом.</p><p>Цель этого приключения — исследовать, что значит быть героем там, где боги и титаны все еще ходят по земле, где силы цивилизации только начинают одерживать верх над чудовищами. Ваши игроки возьмут на себя роль мифических героев, которым поручено исполнить пророчество и противостоять титанам. Их решения сформируют будущее и навсегда изменят Тилею.</p>",
+  "url": "https://github.com/UnSttopMeNow/unst-odyssey-of-the-dragonlords",
+  "manifest": "https://github.com/UnSttopMeNow/unst-odyssey-of-the-dragonlords/releases/latest/download/module.json",
+  "download": "https://github.com/UnSttopMeNow/unst-odyssey-of-the-dragonlords/releases/download/v1.0.0/module.zip"
 }
